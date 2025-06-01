@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biznes proekologiczny: EKO-Strategia</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gantt-styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 </head>
@@ -436,55 +437,106 @@
                     <div class="presenter-badge piotr">Piotr Jaworski</div>
                 </div>
                 <h2 class="slide-title animate-in">Plan wdrożenia</h2>
-                <div class="implementation-timeline animate-in delay-1">
-                    <div class="phase-card phase-1">
-                        <div class="phase-header">Q1 - Ocena i Planowanie</div>
-                        <div class="phase-content">
-                            <ul>
-                                <li>Audit obecnego stanu</li>
-                                <li>Analiza śladu węglowego</li>
-                                <li>Opracowanie strategii</li>
-                            </ul>
+                <div class="gantt-chart-container animate-in delay-1">
+                    <div class="gantt-header">
+                        <div class="gantt-header-label">Etap</div>
+                        <div class="gantt-quarters">
+                            <div class="gantt-quarter">Q1</div>
+                            <div class="gantt-quarter">Q2</div>
+                            <div class="gantt-quarter">Q3</div>
+                            <div class="gantt-quarter">Q4</div>
                         </div>
                     </div>
-                    <div class="phase-card phase-2">
-                        <div class="phase-header">Q1-Q2 - Infrastruktura</div>
-                        <div class="phase-content">
-                            <ul>
-                                <li>Zielona energia</li>
-                                <li>Optymalizacja IT</li>
-                                <li>Monitoring systemów</li>
-                            </ul>
+                    <div class="gantt-months-container">
+                        <div class="gantt-months-spacer"></div>
+                        <div class="gantt-months">
+                            <div class="gantt-month">Sty</div>
+                            <div class="gantt-month">Lut</div>
+                            <div class="gantt-month">Mar</div>
+                            <div class="gantt-month">Kwi</div>
+                            <div class="gantt-month">Maj</div>
+                            <div class="gantt-month">Cze</div>
+                            <div class="gantt-month">Lip</div>
+                            <div class="gantt-month">Sie</div>
+                            <div class="gantt-month">Wrz</div>
+                            <div class="gantt-month">Paź</div>
+                            <div class="gantt-month">Lis</div>
+                            <div class="gantt-month">Gru</div>
                         </div>
                     </div>
-                    <div class="phase-card phase-3">
-                        <div class="phase-header">Q2 - Kultura i Szkolenia</div>
-                        <div class="phase-content">
-                            <ul>
-                                <li>Programy edukacyjne</li>
-                                <li>Warsztaty EKO</li>
-                                <li>Green teams</li>
-                            </ul>
+                    <div class="gantt-row">
+                        <div class="gantt-row-label">
+                            <div class="gantt-label-title">Ocena i Planowanie</div>
+                            <div class="gantt-label-desc">
+                                <ul>
+                                    <li>Audit obecnego stanu</li>
+                                    <li>Analiza śladu węglowego</li>
+                                    <li>Opracowanie strategii</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gantt-row-bars">
+                            <div class="gantt-bar phase-1-color" style="grid-column: 1 / 4;" data-label="Q1 2025"></div>
                         </div>
                     </div>
-                    <div class="phase-card phase-4">
-                        <div class="phase-header">Q2-Q3 - Komunikacja</div>
-                        <div class="phase-content">
-                            <ul>
-                                <li>Kampanie wewnętrzne</li>
-                                <li>Employer branding</li>
-                                <li>Storytelling ESG</li>
-                            </ul>
+                    <div class="gantt-row">
+                        <div class="gantt-row-label">
+                            <div class="gantt-label-title">Infrastruktura</div>
+                            <div class="gantt-label-desc">
+                                <ul>
+                                    <li>Zielona energia</li>
+                                    <li>Optymalizacja IT</li>
+                                    <li>Monitoring systemów</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gantt-row-bars">
+                            <div class="gantt-bar phase-2-color" style="grid-column: 2 / 6;" data-label="Q1-Q2 2025"></div>
                         </div>
                     </div>
-                    <div class="phase-card phase-5">
-                        <div class="phase-header">Q3-Q4 - Monitoring</div>
-                        <div class="phase-content">
-                            <ul>
-                                <li>KPI tracking</li>
-                                <li>Raportowanie</li>
-                                <li>Ciągła optymalizacja</li>
-                            </ul>
+                    <div class="gantt-row">
+                        <div class="gantt-row-label">
+                            <div class="gantt-label-title">Kultura i Szkolenia</div>
+                            <div class="gantt-label-desc">
+                                <ul>
+                                    <li>Programy edukacyjne</li>
+                                    <li>Warsztaty EKO</li>
+                                    <li>Green teams</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gantt-row-bars">
+                            <div class="gantt-bar phase-3-color" style="grid-column: 4 / 7;" data-label="Q2 2025"></div>
+                        </div>
+                    </div>
+                    <div class="gantt-row">
+                        <div class="gantt-row-label">
+                            <div class="gantt-label-title">Komunikacja</div>
+                            <div class="gantt-label-desc">
+                                <ul>
+                                    <li>Kampanie wewnętrzne</li>
+                                    <li>Employer branding</li>
+                                    <li>Storytelling ESG</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gantt-row-bars">
+                            <div class="gantt-bar phase-4-color" style="grid-column: 4 / 9;" data-label="Q2-Q3 2025"></div>
+                        </div>
+                    </div>
+                    <div class="gantt-row">
+                        <div class="gantt-row-label">
+                            <div class="gantt-label-title">Monitoring</div>
+                            <div class="gantt-label-desc">
+                                <ul>
+                                    <li>KPI tracking</li>
+                                    <li>Raportowanie</li>
+                                    <li>Ciągła optymalizacja</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gantt-row-bars">
+                            <div class="gantt-bar phase-5-color" style="grid-column: 7 / 13;" data-label="Q3-Q4 2025"></div>
                         </div>
                     </div>
                 </div>

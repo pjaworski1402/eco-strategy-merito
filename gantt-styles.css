@@ -1,0 +1,284 @@
+/* Gantt Chart */
+.gantt-chart-container {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-16);
+  overflow: hidden;
+}
+
+.gantt-header {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--space-16);
+  margin-bottom: var(--space-16);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-8);
+}
+
+.gantt-header-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.gantt-quarters {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  text-align: center;
+}
+
+.gantt-quarter {
+  grid-column: span 3;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  border-left: 1px dashed var(--color-border);
+  padding: var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Kolory tła dla kwartałów */
+.gantt-quarter:nth-child(1) {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.gantt-quarter:nth-child(2) {
+  background-color: rgba(22, 163, 74, 0.05);
+}
+
+.gantt-quarter:nth-child(3) {
+  background-color: rgba(234, 88, 12, 0.05);
+}
+
+.gantt-quarter:nth-child(4) {
+  background-color: rgba(124, 58, 237, 0.05);
+}
+
+.gantt-row {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--space-16);
+  margin-bottom: var(--space-16);
+  align-items: center;
+}
+
+.gantt-row-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.gantt-label-title {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.gantt-label-desc ul {
+  margin: 0;
+  padding-left: var(--space-16);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.gantt-label-desc li {
+  margin-bottom: var(--space-4);
+}
+
+.gantt-row-bars {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 40px;
+  position: relative;
+  background-color: var(--color-surface);
+}
+
+/* Paski tła dla kwartałów */
+.gantt-row-bars::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(37, 99, 235, 0.05) 0,
+    rgba(37, 99, 235, 0.05) calc(100% / 4),
+    rgba(22, 163, 74, 0.05) calc(100% / 4),
+    rgba(22, 163, 74, 0.05) calc(100% / 2),
+    rgba(234, 88, 12, 0.05) calc(100% / 2),
+    rgba(234, 88, 12, 0.05) calc(3 * 100% / 4),
+    rgba(124, 58, 237, 0.05) calc(3 * 100% / 4),
+    rgba(124, 58, 237, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+/* Pionowe linie miesięcy */
+.gantt-row-bars::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(100% / 12 - 1px),
+    var(--color-border) calc(100% / 12 - 1px),
+    var(--color-border) calc(100% / 12)
+  );
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.gantt-bar {
+  height: 24px;
+  border-radius: var(--radius-full);
+  margin: 8px 4px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 2;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.gantt-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.gantt-bar:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.gantt-bar:hover::after {
+  opacity: 1;
+}
+
+/* Dodaję etykiety do pasków */
+.gantt-bar[data-label]::before {
+  content: attr(data-label);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 2px 8px;
+  border-radius: var(--radius-base);
+  font-size: 10px;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.gantt-bar:hover[data-label]::before {
+  opacity: 1;
+}
+
+/* Miesiące - podpisy */
+.gantt-months-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--space-16);
+  margin-bottom: var(--space-8);
+}
+
+.gantt-months-spacer {
+  /* Pusta przestrzeń przed miesiącami, aby wyrównać do siatki */
+}
+
+.gantt-months {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  text-align: center;
+  font-size: 9px;
+  color: var(--color-text-secondary);
+}
+
+.gantt-month {
+  padding: var(--space-2);
+  position: relative;
+}
+
+/* Pionowe linie pomiędzy miesiącami */
+.gantt-month:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 1px;
+  background-color: var(--color-border);
+  opacity: 0.3;
+}
+
+.phase-1-color {
+  background: #2563eb;
+}
+
+.phase-2-color {
+  background: #16a34a;
+}
+
+.phase-3-color {
+  background: #ea580c;
+}
+
+.phase-4-color {
+  background: #7c3aed;
+}
+
+.phase-5-color {
+  background: #6b7280;
+}
+
+.gantt-bar.mobile-view {
+  height: 20px;
+  margin: 5px 2px;
+}
+
+@media (max-width: 768px) {
+  .gantt-chart-container {
+    padding: var(--space-8);
+  }
+  
+  .gantt-header, .gantt-row {
+    grid-template-columns: 150px 1fr;
+    gap: var(--space-8);
+  }
+  
+  .gantt-label-desc ul {
+    padding-left: var(--space-12);
+  }
+  
+  .gantt-label-title {
+    font-size: var(--font-size-sm);
+  }
+  
+  .gantt-label-desc li {
+    font-size: 10px;
+  }
+  
+  .gantt-months-container {
+    grid-template-columns: 150px 1fr;
+    gap: var(--space-8);
+  }
+  
+  .gantt-months {
+    font-size: 7px;
+  }
+}

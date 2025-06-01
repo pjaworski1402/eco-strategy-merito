@@ -74,6 +74,7 @@ class PresentationApp {
         this.updateNavigationButtons();
         this.triggerSlideAnimations();
         this.animateNumbers();
+        this.updateGanttResponsiveness();
     }
 
     updateProgress() {
@@ -100,6 +101,7 @@ class PresentationApp {
         setTimeout(() => {
             this.triggerSlideAnimations();
             this.animateNumbers();
+            this.updateGanttResponsiveness();
         }, 100);
     }
 
@@ -574,6 +576,31 @@ class PresentationApp {
             }
         });
         this.charts = {};
+    }
+
+    updateGanttResponsiveness() {
+        // Adjust Gantt chart for smaller screens if present on current slide
+        const ganttContainer = document.querySelector('.gantt-chart-container');
+        if (ganttContainer) {
+            this.adjustGanttScale();
+            // Bind adjustGanttScale to this class instance to ensure proper context
+            window.addEventListener('resize', this.adjustGanttScale.bind(this));
+        }
+    }
+    
+    adjustGanttScale() {
+        const ganttBars = document.querySelectorAll('.gantt-bar');
+        const isMobile = window.innerWidth <= 768;
+        
+        // Adjust bar position/spacing for mobile view
+        ganttBars.forEach(bar => {
+            if (isMobile) {
+                // Apply additional mobile-specific styles if needed
+                bar.classList.add('mobile-view');
+            } else {
+                bar.classList.remove('mobile-view');
+            }
+        });
     }
 }
 
