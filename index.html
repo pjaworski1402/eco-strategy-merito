@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biznes proekologiczny: EKO-Strategia</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+</head>
+<body>
+    <div id="presentation-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prev-btn" class="nav-btn">‹</button>
+            <span id="slide-counter">1 / 11</span>
+            <button id="next-btn" class="nav-btn">›</button>
+        </div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide active" data-presenter="title">
+            <div class="slide-content">
+                <div class="title-slide">
+                    <h1 class="main-title animate-in">Biznes proekologiczny</h1>
+                    <h2 class="subtitle animate-in delay-1">EKO-Strategia kluczem do budowy silnej pozycji w biznesie</h2>
+                    <div class="team-info animate-in delay-2">
+                        <h3>Grupa 1 - Zespół konsultantów biznesowych</h3>
+                        <div class="presenters-grid">
+                            <div class="presenter-card julia">
+                                <div class="presenter-color"></div>
+                                <div class="presenter-info">
+                                    <h4>Julia Jaworek</h4>
+                                </div>
+                            </div>
+                            <div class="presenter-card dmitry">
+                                <div class="presenter-color"></div>
+                                <div class="presenter-info">
+                                    <h4>Dmitry Krasnitski</h4>
+                                </div>
+                            </div>
+                            <div class="presenter-card jakub">
+                                <div class="presenter-color"></div>
+                                <div class="presenter-info">
+                                    <h4>Jakub Danelski</h4>
+                                </div>
+                            </div>
+                            <div class="presenter-card piotr">
+                                <div class="presenter-color"></div>
+                                <div class="presenter-info">
+                                    <h4>Piotr Jaworski</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Introduction - Julia -->
+        <div class="slide" data-presenter="julia">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge julia">Julia Jaworek</div>
+                </div>
+                <h2 class="slide-title animate-in">Wprowadzenie</h2>
+                <div class="content-grid">
+                    <div class="content-block animate-in delay-1">
+                        <h3>Opis klienta</h3>
+                        <ul>
+                            <li>Polska firma IT planująca strategię zrównoważonego rozwoju</li>
+                            <li>Potrzeba budowy silnej pozycji na rynku</li>
+                            <li>Chęć implementacji działań proekologicznych</li>
+                        </ul>
+                    </div>
+                    <div class="content-block animate-in delay-2">
+                        <h3>Cel projektu</h3>
+                        <ul>
+                            <li>Opracowanie kompleksowej EKO-strategii</li>
+                            <li>Analiza najlepszych praktyk rynkowych</li>
+                            <li>Wdrożenie kultury proekologicznej w firmie</li>
+                        </ul>
+                    </div>
+                    <div class="content-block animate-in delay-3">
+                        <h3>Agenda prezentacji</h3>
+                        <ol>
+                            <li>Analiza trendów rynkowych</li>
+                            <li>Benchmarking konkurencji</li>
+                            <li>Employer branding i kultura EKO</li>
+                            <li>Plan wdrożenia i korzyści</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Market Trends - Julia -->
+        <div class="slide" data-presenter="julia">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge julia">Julia Jaworek</div>
+                </div>
+                <h2 class="slide-title animate-in">Analiza trendów</h2>
+                <div class="trends-grid">
+                    <div class="trend-card animate-in delay-1">
+                        <h3>Globalne trendy IT</h3>
+                        <div class="stat-number" data-target="13">0</div>
+                        <p>% wzrost zużycia energii przez IT do 2030</p>
+                        <div class="chart-container">
+                            <canvas id="energyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="trend-card animate-in delay-2">
+                        <h3>AI i wzrost konsumpcji</h3>
+                        <div class="stat-number" data-target="29">0</div>
+                        <p>% wzrost AI rocznie 2024-2028</p>
+                    </div>
+                    <div class="trend-card animate-in delay-3">
+                        <h3>Polskie firmy IT z ESG</h3>
+                        <div class="stat-number" data-target="11">0</div>
+                        <p>% ma strategiczne podejście</p>
+                        <div class="chart-container">
+                            <canvas id="polishChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="source-reference animate-in delay-4">
+                    <p>Źródło: McKinsey ESG Research, Deloitte Sustainability Study, INSPIRED ESG Report 2022</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Apple Analysis - Dmitry -->
+        <div class="slide" data-presenter="dmitry">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge dmitry">Dmitry Krasnitski</div>
+                </div>
+                <h2 class="slide-title animate-in">Analiza konkurencji - Apple</h2>
+                <div class="company-analysis">
+                    <div class="company-header animate-in delay-1">
+                        <h3>Apple - lider w zrównoważonym rozwoju</h3>
+                        <p>Plan Apple 2030 - neutralność węglowa</p>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-card animate-in delay-2">
+                            <div class="metric-value" data-target="60">0</div>
+                            <div class="metric-label">% redukcja emisji CO₂ od 2015</div>
+                        </div>
+                        <div class="metric-card animate-in delay-3">
+                            <div class="metric-value" data-target="100">0</div>
+                            <div class="metric-label">% pierwiastków ziem rzadkich z recyklingu</div>
+                        </div>
+                        <div class="metric-card animate-in delay-4">
+                            <div class="metric-value" data-target="100">0</div>
+                            <div class="metric-label">% operacji na energii odnawialnej od 2018</div>
+                        </div>
+                    </div>
+                    <div class="apple-details animate-in delay-3">
+                        <div class="apple-detail-item">
+                            <span class="detail-label">Cel redukcji emisji do 2030 roku:</span>
+                            <span class="detail-value">75%</span>
+                        </div>
+                        <div class="apple-detail-item">
+                            <span class="detail-label">Redukcja zużycia energii od 2008:</span>
+                            <span class="detail-value">Ponad 70%</span>
+                        </div>
+                        <div class="apple-detail-item">
+                            <span class="detail-label">Materiały z recyklingu w bateriach:</span>
+                            <span class="detail-value">100% kobaltu</span>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="appleChart"></canvas>
+                    </div>
+                    <div class="source-reference animate-in delay-4">
+                        <p>Źródło: <a href="https://www.apple.com/pl/environment/" target="_blank">Apple.com/pl/environment</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Netguru Analysis - Dmitry -->
+        <div class="slide" data-presenter="dmitry">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge dmitry">Dmitry Krasnitski</div>
+                </div>
+                <h2 class="slide-title animate-in">Analiza konkurencji - Netguru</h2>
+                <div class="company-analysis">
+                    <div class="company-header animate-in delay-1">
+                        <h3>Netguru - polska firma z certyfikacją B Corp</h3>
+                        <p>B Impact Score: 89.4 (mediana branży: 50.9)</p>
+                    </div>
+                    <div class="netguru-compact-grid animate-in delay-2">
+                        <div class="netguru-metrics-row">
+                            <div class="netguru-metric-card">
+                                <div class="netguru-metric-icon"><i class="ng-certificate"></i></div>
+                                <div class="netguru-metric-content">
+                                    <div class="netguru-metric-value">2020</div>
+                                    <div class="netguru-metric-label">Rok certyfikacji B Corp</div>
+                                </div>
+                            </div>
+                            <div class="netguru-metric-card">
+                                <div class="netguru-metric-icon"><i class="ng-climate"></i></div>
+                                <div class="netguru-metric-content">
+                                    <div class="netguru-metric-value">2020</div>
+                                    <div class="netguru-metric-label">Neutralność węglowa od</div>
+                                </div>
+                            </div>
+                            <div class="netguru-metric-card">
+                                <div class="netguru-metric-icon"><i class="ng-globe"></i></div>
+                                <div class="netguru-metric-content">
+                                    <div class="netguru-metric-value">2019</div>
+                                    <div class="netguru-metric-label">Uczestnictwo w UNGC od</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netguru-data-row">
+                            <div class="chart-container netguru-chart">
+                                <canvas id="netguruChart"></canvas>
+                            </div>
+                            <div class="netguru-info-card">
+                                <h4>Czym jest B Impact Score?</h4>
+                                <p>B Impact Score to ocena wpływu firmy na pracowników, społeczność, środowisko i klientów. Minimum do certyfikacji B Corp to 80/200 punktów.</p>
+                                <div class="netguru-info-highlight">
+                                    "Naszą wizją jest zrównoważony świat cyfrowy, w którym każdy może realizować swój potencjał."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netguru-achievements">
+                            <div class="netguru-achievement-item">
+                                <span class="achievement-icon">✓</span>
+                                <span class="achievement-text">Zarządzanie interesariuszami od 2023</span>
+                            </div>
+                            <div class="netguru-achievement-item">
+                                <span class="achievement-icon">✓</span>
+                                <span class="achievement-text">Spadek śladu węglowego w 2023</span>
+                            </div>
+                            <div class="netguru-achievement-item">
+                                <span class="achievement-icon">✓</span>
+                                <span class="achievement-text">1000+ pracowników w inicjatywach ESG</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="source-reference animate-in delay-4">
+                        <p>Źródło: <a href="https://www.netguru.com/sustainability" target="_blank">Netguru.com/sustainability</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: CD Projekt Analysis - Jakub -->
+        <div class="slide" data-presenter="jakub">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge jakub">Jakub Danelski</div>
+                </div>
+                <h2 class="slide-title animate-in">Analiza konkurencji - CD PROJEKT</h2>
+                <div class="company-analysis">
+                    <div class="company-header animate-in delay-1">
+                        <h3>CD PROJEKT - pierwszy w branży gamingowej z EMAS</h3>
+                        <p>Certyfikacja EMAS w 2024</p>
+                    </div>
+                    <div class="green-initiatives animate-in delay-2">
+                        <div class="initiative-card">
+                            <h4>Green Campus Warszawa</h4>
+                            <div class="initiative-stats">
+                                <div class="stat">
+                                    <span class="stat-number" data-target="400">0</span>
+                                    <span class="stat-label">paneli słonecznych</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number" data-target="135">0</span>
+                                    <span class="stat-label">kWp energii</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="initiative-list animate-in delay-3">
+                            <h4>Kluczowe działania środowiskowe:</h4>
+                            <ul>
+                                <li>Monitoring śladu węglowego</li>
+                                <li>Zielona energia w biurach</li>
+                                <li>Programy recyklingu</li>
+                                <li>Edukacja ekologiczna zespołu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Employer Branding - Jakub -->
+        <div class="slide" data-presenter="jakub">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge jakub">Jakub Danelski</div>
+                </div>
+                <h2 class="slide-title animate-in">Kultura EKO w Employer Branding</h2>
+                <div class="employer-branding-grid">
+                    <div class="generation-stats animate-in delay-1">
+                        <h3>Preferencje młodych pokoleń</h3>
+                        <div class="chart-container">
+                            <canvas id="generationChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="benefits-list animate-in delay-2">
+                        <h3>Korzyści dla marki pracodawcy</h3>
+                        <div class="benefit-item">
+                            <div class="benefit-value" data-target="69">0</div>
+                            <div class="benefit-label">% wzrost wartości marki</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-value" data-target="67">0</div>
+                            <div class="benefit-label">% wzrost motywacji</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-value" data-target="25">0</div>
+                            <div class="benefit-label">% wyższa szansa na talent</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Implementation Plan - Piotr -->
+        <div class="slide" data-presenter="piotr">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge piotr">Piotr Jaworski</div>
+                </div>
+                <h2 class="slide-title animate-in">Plan wdrożenia</h2>
+                <div class="implementation-timeline animate-in delay-1">
+                    <div class="phase-card phase-1">
+                        <div class="phase-header">Q1 - Ocena i Planowanie</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>Audit obecnego stanu</li>
+                                <li>Analiza śladu węglowego</li>
+                                <li>Opracowanie strategii</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-card phase-2">
+                        <div class="phase-header">Q1-Q2 - Infrastruktura</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>Zielona energia</li>
+                                <li>Optymalizacja IT</li>
+                                <li>Monitoring systemów</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-card phase-3">
+                        <div class="phase-header">Q2 - Kultura i Szkolenia</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>Programy edukacyjne</li>
+                                <li>Warsztaty EKO</li>
+                                <li>Green teams</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-card phase-4">
+                        <div class="phase-header">Q2-Q3 - Komunikacja</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>Kampanie wewnętrzne</li>
+                                <li>Employer branding</li>
+                                <li>Storytelling ESG</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-card phase-5">
+                        <div class="phase-header">Q3-Q4 - Monitoring</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>KPI tracking</li>
+                                <li>Raportowanie</li>
+                                <li>Ciągła optymalizacja</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Benefits - Piotr -->
+        <div class="slide" data-presenter="piotr">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge piotr">Piotr Jaworski</div>
+                </div>
+                <h2 class="slide-title animate-in">Korzyści wdrożenia</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-category animate-in delay-1">
+                        <h3>Marka pracodawcy</h3>
+                        <div class="benefit-chart">
+                            <canvas id="employerChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="benefit-category animate-in delay-2">
+                        <h3>Marka konsumencka</h3>
+                        <ul class="benefit-list">
+                            <li>Wzrost zaufania klientów</li>
+                            <li>Pozycjonowanie premium</li>
+                            <li>Competitive advantage</li>
+                            <li>Customer loyalty</li>
+                        </ul>
+                    </div>
+                    <div class="benefit-category animate-in delay-3">
+                        <h3>ROI i wskaźniki</h3>
+                        <div class="roi-metrics">
+                            <div class="metric">
+                                <span class="metric-title">Oszczędności energii</span>
+                                <span class="metric-value">15-30%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-title">Redukcja kosztów</span>
+                                <span class="metric-value">10-25%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-title">Wzrost produktywności</span>
+                                <span class="metric-value">5-15%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Conclusions - Piotr -->
+        <div class="slide" data-presenter="piotr">
+            <div class="slide-content">
+                <div class="presenter-header">
+                    <div class="presenter-badge piotr">Piotr Jaworski</div>
+                </div>
+                <h2 class="slide-title animate-in">Kluczowe wnioski</h2>
+                <div class="conclusions-container">
+                    <div class="conclusion-section animate-in delay-1">
+                        <h3>Strategiczne rekomendacje</h3>
+                        <div class="recommendation-grid">
+                            <div class="recommendation-card">
+                                <h4>1. Rozpocznij od audytu</h4>
+                                <p>Oceń obecny stan i ustaw baseline</p>
+                            </div>
+                            <div class="recommendation-card">
+                                <h4>2. Zaangażuj zespół</h4>
+                                <p>Buduj kulturę EKO od pierwszego dnia</p>
+                            </div>
+                            <div class="recommendation-card">
+                                <h4>3. Komunikuj transparentnie</h4>
+                                <p>Dziel się postępami i sukcesami</p>
+                            </div>
+                            <div class="recommendation-card">
+                                <h4>4. Mierz i optymalizuj</h4>
+                                <p>Ciągłe doskonalenie procesów</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="next-steps animate-in delay-2">
+                        <h3>Następne kroki</h3>
+                        <ol>
+                            <li>Zatwierdzenie strategii przez zarząd</li>
+                            <li>Powołanie zespołu ds. sustainability</li>
+                            <li>Rozpoczęcie fazy pilotażowej</li>
+                            <li>Opracowanie timeline'u wdrożenia</li>
+                        </ol>
+                    </div>
+                    <div class="cta-section animate-in delay-3">
+                        <h3>Jesteśmy gotowi pomóc!</h3>
+                        <p>Skontaktuj się z naszym zespołem, aby rozpocząć transformację EKO w Twojej firmie.</p>
+                        <div class="team-contacts">
+                            <span>Julia Jaworek • Dmitry Krasnitski • Jakub Danelski • Piotr Jaworski</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Sources - Piotr -->
+        <div class="slide" data-presenter="piotr">
+            <div class="slide-content">
+                <!-- <div class="presenter-header">
+                    <div class="presenter-badge piotr">Piotr</div>
+                </div> -->
+                <h2 class="slide-title animate-in">Źródła</h2>
+                <div class="sources-container">
+                    <div class="sources-grid animate-in delay-1">
+                        <div class="sources-column">
+                            <h3>Firmy IT - raporty ESG</h3>
+                            <ul class="sources-list">
+                                <li><a href="https://www.netguru.com/esg-report-2022" target="_blank">Netguru ESG Report 2022</a></li>
+                                <li><a href="https://www.netguru.com/blog/esg-disclosure" target="_blank">Netguru ESG Voluntary Disclosure</a></li>
+                                <li><a href="https://www.netguru.com/sustainability" target="_blank">Netguru Sustainability</a></li>
+                                <li><a href="https://www.netguru.com/esg-statement-2023" target="_blank">Netguru ESG Statement 2023</a></li>
+                                <li><a href="https://esg.asseco.com/en/dobre-praktyki-asseco/" target="_blank">Asseco - Dobre praktyki ESG</a></li>
+                                <li><a href="https://www.allegromicro.com/en/about-allegro/corporate-responsibility/sustainability" target="_blank">Allegro Sustainability</a></li>
+                                <li><a href="https://grupaever.com.pl/en/esg-and-csr/" target="_blank">Grupa Ever - ESG & CSR</a></li>
+                            </ul>
+                        </div>
+                        <div class="sources-column">
+                            <h3>Case studies branżowe</h3>
+                            <ul class="sources-list">
+                                <li><a href="https://www.netguru.com/blog/sustainable-software-design-uk" target="_blank">Sustainable Software Design - UK Case Study</a></li>
+                                <li><a href="https://www.netguru.com/blog/netgurus-efforts-to-address-climate-change" target="_blank">Netguru's Climate Change Efforts</a></li>
+                                <li><a href="https://green-forum.ec.europa.eu/news/cd-projekt-first-emas-company-video-game-industry-2024-05-28_en" target="_blank">CD Projekt - First EMAS in Gaming</a></li>
+                                <li><a href="https://aerisfuturo.pl/en/portfolio/techland-an-ecological-battle-for-the-environment/" target="_blank">Techland - Ecological Battle</a></li>
+                                <li><a href="https://corporate.ccc.eu/en/sustainability" target="_blank">CCC Sustainability</a></li>
+                                <li><a href="https://www.bankier.pl/static/att/emitent/2023-04/Polsat-Plus-Group-ESG-Report-2022-ENG_202304200431685466.xhtml" target="_blank">Polsat Plus Group ESG Report</a></li>
+                            </ul>
+                        </div>
+                        <div class="sources-column">
+                            <h3>Rynek i trendy</h3>
+                            <ul class="sources-list">
+                                <li><a href="https://bank.pl/zrownowazony-rozwoj-stal-sie-priorytetem-dla-polskiej-branzy-it/" target="_blank">Zrównoważony rozwój w polskiej branży IT</a></li>
+                                <li><a href="https://www.altenpolska.pl/uslugi-it/green-it/" target="_blank">ALTEN Polska - Green IT</a></li>
+                                <li><a href="https://www.netguru.com/blog/sustainability-by-design" target="_blank">Sustainability by Design</a></li>
+                                <li><a href="https://www.csrhub.com/CSR_and_sustainability_information/Livechat-Software-SA" target="_blank">LiveChat Software - CSR</a></li>
+                                <li><a href="https://silvestergroup.com/en/services/esg.html" target="_blank">Silvester Group - ESG Services</a></li>
+                                <li><a href="https://www.pwc.pl/en/services/esg-comprehensive-support-for-businesses.html" target="_blank">PwC ESG Support for Business</a></li>
+                                <li><a href="https://www.signify.com/global/lighting-services/managed-services/light-as-a-service/one-stop-shop-campaign/how-green-funding-can-support-your-esg-agenda" target="_blank">Green Funding for ESG Agenda</a></li>
+                                <li><a href="https://www.mckinsey.com/capabilities/sustainability/our-insights" target="_blank">McKinsey ESG Research</a></li>
+                                <li><a href="https://www2.deloitte.com/global/en/pages/about-deloitte/articles/sustainability.html" target="_blank">Deloitte Sustainability Study</a></li>
+                                <li><a href="https://inspired-sustainability.com/sustainability-reports" target="_blank">INSPIRED ESG Report 2022</a></li>
+                                <li><a href="https://www.apple.com/pl/environment/" target="_blank">Apple - Środowisko i raport 2024</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
