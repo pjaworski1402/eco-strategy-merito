@@ -157,23 +157,42 @@ class PresentationApp {
     }
 
     createCharts() {
-        // Energy consumption chart
-        this.createEnergyChart();
-        
-        // Polish IT ESG chart
-        this.createPolishChart();
-        
-        // Apple sustainability chart
-        this.createAppleChart();
-        
-        // Netguru chart
-        this.createNetguruChart();
-        
-        // Generation preferences chart
-        this.createGenerationChart();
-        
-        // Employer branding benefits chart
-        this.createEmployerChart();
+        // Load ChartJS 
+        this.loadChartJS().then(() => {
+            // Initialize charts
+            this.charts = {};
+            this.createEnergyChart();
+            this.createPolishChart();
+            this.createAppleChart();
+            this.createNetguruChart();
+            this.createGenerationChart();
+            this.createCDPRChart();
+            this.createCDPRCampusChart();
+        });
+    }
+
+    loadChartJS() {
+        return new Promise((resolve) => {
+            // Check if Chart is already loaded
+            if (typeof Chart !== 'undefined') {
+                resolve();
+                return;
+            }
+
+            // Load Chart.js and ChartDataLabels plugin
+            const chartScript = document.createElement('script');
+            chartScript.src = 'https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js';
+            chartScript.onload = () => {
+                const dataLabelsScript = document.createElement('script');
+                dataLabelsScript.src = 'https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.1.0/dist/chartjs-plugin-datalabels.min.js';
+                dataLabelsScript.onload = () => {
+                    window.ChartDataLabels = window.ChartDataLabels;
+                    resolve();
+                };
+                document.head.appendChild(dataLabelsScript);
+            };
+            document.head.appendChild(chartScript);
+        });
     }
 
     createEnergyChart() {
@@ -492,66 +511,8 @@ class PresentationApp {
         });
     }
 
-    createEmployerChart() {
-        const ctx = document.getElementById('employerChart');
-        if (!ctx) return;
-
-        this.charts.employer = new Chart(ctx, {
-            type: 'polarArea',
-            data: {
-                labels: ['Wzrost wartości marki', 'Wzrost motywacji', 'Wzrost lojalności', 'Przyciąganie talentów'],
-                datasets: [{
-                    data: [69, 67, 38, 25],
-                    backgroundColor: [
-                        '#7c3aed',
-                        '#7c3aed80',
-                        '#7c3aed60',
-                        '#7c3aed40'
-                    ],
-                    borderColor: '#7c3aed',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 8,
-                            font: {
-                                size: 10
-                            }
-                        }
-                    },
-                    datalabels: {
-                        color: '#fff',
-                        font: {
-                            weight: 'bold',
-                            size: 14
-                        },
-                        formatter: function(value) {
-                            return value + '%';
-                        },
-                        anchor: 'center',
-                        align: 'center'
-                    }
-                },
-                scales: {
-                    r: {
-                        beginAtZero: true,
-                        max: 80,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%';
-                            }
-                        }
-                    }
-                }
-            },
-            plugins: [ChartDataLabels]
-        });
+    createCDPRChart() {
+        // ... existing code ...
     }
 
     // Chart animation on slide enter
