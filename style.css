@@ -2539,3 +2539,83 @@ select.form-control {
     grid-template-columns: 1fr;
   }
 }
+
+/* Dodaję style dla kontenerów z kodami QR */
+.qr-code-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.qr-code-box {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 650px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.qr-code-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 8px;
+    margin-right: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.qr-code-img:hover {
+    transform: scale(1.05);
+}
+
+.qr-code-info {
+    flex: 1;
+}
+
+.qr-code-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: var(--color-primary);
+}
+
+.qr-code-info p {
+    margin: 0 0 12px 0;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.qr-link {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    border-bottom: 1px dotted var(--color-primary);
+    transition: all 0.2s ease;
+    padding-bottom: 2px;
+}
+
+.qr-link:hover {
+    color: #7c3aed;
+    border-bottom-color: #7c3aed;
+}
+
+/* Dodatkowe style dla responsywności QR kodów */
+@media screen and (max-width: 768px) {
+    .qr-code-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .qr-code-img {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 140px;
+        height: 140px;
+    }
+}
