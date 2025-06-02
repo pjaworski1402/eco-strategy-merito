@@ -2484,6 +2484,8 @@ select.form-control {
   text-align: center;
   font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
+  color: #fff;
+  font-weight: var(--font-weight-bold);
 }
 
 .icon-grid {
